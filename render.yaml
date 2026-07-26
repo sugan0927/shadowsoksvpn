@@ -1,21 +1,16 @@
 services:
   - type: web
     name: shadowsocks
-    runtime: image
-    image: shadowsocks/shadowsocks-libev
-    dockerfilePath: ""          # ← यह लाइन ज़रूरी है – Render Dockerfile नहीं ढूँढेगा
+    runtime: docker
+    dockerfilePath: ./Dockerfile
     plan: free
     envVars:
       - key: SS_PASSWORD
-        value: "Ethan@092709"   # इसे बदलें
+        value: "Ethan@092709"   # अपना पासवर्ड डालें
       - key: SS_METHOD
         value: "chacha20-ietf-poly1305"
       - key: SS_PORT
         value: "8388"
-      - key: SS_TIMEOUT
-        value: "300"
-      - key: SS_DNS
-        value: "8.8.8.8,8.8.4.4"
     ports:
       - port: 8388
         protocol: tcp
