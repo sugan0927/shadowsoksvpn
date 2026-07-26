@@ -1,21 +1,22 @@
-# Alpine Linux पर आधारित हल्का इमेज
-FROM alpine:latest
+# Alpine Linux (stable)
+FROM alpine:3.19
 
-# आवश्यक पैकेज इंस्टॉल करें
-RUN apk add --no-cache \
-    shadowsocks-libev \
-    gettext \
+# Community repository जोड़ें और shadowsocks-libev इंस्टॉल करें
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/v3.19/main" >> /etc/apk/repositories && \
+    echo "http://dl-cdn.alpinelinux.org/alpine/v3.19/community" >> /etc/apk/repositories && \
+    apk add --no-cache \
+        shadowsocks-libev \
+        gettext \
+        openssl \
     && rm -rf /var/cache/apk/*
 
-# कॉन्फ़िगरेशन डायरेक्टरी बनाएं
+# कॉन्फ़िगरेशन डायरेक्टरी
 RUN mkdir -p /etc/shadowsocks-libev
 
-# कॉपी करें और एंट्रीपॉइंट सेट करें
+# एंट्रीपॉइंट स्क्रिप्ट कॉपी करें
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# डिफ़ॉल्ट पोर्ट
 EXPOSE 8388
 
-# एंट्रीपॉइंट
 ENTRYPOINT ["/entrypoint.sh"]
