@@ -2,7 +2,7 @@ services:
   - type: web
     name: shadowsocks
     runtime: image
-    repo: https://github.com/your-username/your-repo-name
+    repo: https://github.com/sugan0927/shadowsoksvpn/tree/main
     plan: free
     dockerfilePath: ./Dockerfile
     dockerCommand: ""
