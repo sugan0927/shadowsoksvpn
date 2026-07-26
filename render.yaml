@@ -3,10 +3,11 @@ services:
     name: shadowsocks
     runtime: image
     image: shadowsocks/shadowsocks-libev
+    dockerfilePath: ""          # ← यह लाइन ज़रूरी है – Render Dockerfile नहीं ढूँढेगा
     plan: free
     envVars:
       - key: SS_PASSWORD
-        value: "Ethan@092709"   # इसे बदलना न भूलें
+        value: "Ethan@092709"   # इसे बदलें
       - key: SS_METHOD
         value: "chacha20-ietf-poly1305"
       - key: SS_PORT
