@@ -6,7 +6,7 @@ RUN pip install --no-cache-dir shadowsocks
 # डिफ़ॉल्ट एनवायरनमेंट वेरिएबल्स
 ENV SS_PORT=8388
 ENV SS_PASSWORD=Ethan@0927
-ENV SS_METHOD=chacha20-ietf-poly1305
+ENV SS_METHOD=aes-256-cfb
 
 # पोर्ट खोलें
 EXPOSE 8388
