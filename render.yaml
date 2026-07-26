@@ -6,7 +6,7 @@ services:
     plan: free
     envVars:
       - key: SS_PASSWORD
-        value: "Ethan@092709"   # अपना पासवर्ड डालें
+        value: "Ethan@092709"   # इसे बदलना न भूलें
       - key: SS_METHOD
         value: "chacha20-ietf-poly1305"
       - key: SS_PORT
