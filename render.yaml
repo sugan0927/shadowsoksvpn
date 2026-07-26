@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: shadowsocks
+    runtime: image
+    repo: https://github.com/your-username/your-repo-name
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerCommand: ""
+    envVars:
+      - key: PASSWORD
+        value: Ethan@092709  # इसे बदलना न भूलें!
+      - key: METHOD
+        value: chacha20-ietf-poly1305
+      - key: PORT
+        value: 8388
+      - key: TIMEOUT
+        value: 300
+      - key: DNS_ADDRS
+        value: 8.8.8.8,8.8.4.4
+    ports:
+      - port: 8388
+        protocol: tcp
+      - port: 8388
+        protocol: udp
