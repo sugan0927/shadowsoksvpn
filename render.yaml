@@ -2,20 +2,18 @@ services:
   - type: web
     name: shadowsocks
     runtime: image
-    repo: https://github.com/sugan0927/shadowsoksvpn/tree/main
+    image: shadowsocks/shadowsocks-libev
     plan: free
-    dockerfilePath: ./Dockerfile
-    dockerCommand: ""
     envVars:
-      - key: PASSWORD
-        value: Ethan@092709  # इसे बदलना न भूलें!
-      - key: METHOD
+      - key: SS_PASSWORD
+        value: Ethan@092709
+      - key: SS_METHOD
         value: chacha20-ietf-poly1305
-      - key: PORT
+      - key: SS_PORT
         value: 8388
-      - key: TIMEOUT
+      - key: SS_TIMEOUT
         value: 300
-      - key: DNS_ADDRS
+      - key: SS_DNS
         value: 8.8.8.8,8.8.4.4
     ports:
       - port: 8388
